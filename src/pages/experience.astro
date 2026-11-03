@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { education } from '../data/site.js';
+---
+<BaseLayout title="Experience" description="Academic background of Xuecheng Bai.">
+  <section class="page-intro section-block">
+    <p class="eyebrow">BACKGROUND</p>
+    <h1>Academic Experience</h1>
+    <p class="page-lead">My academic work is centered on computer vision, deep learning architectures, and UAV-based small object detection.</p>
+  </section>
+  <section class="section-block last-section">
+    <SectionHeading eyebrow="EDUCATION" title="Education" />
+    <div class="timeline-list">
+      {education.map((item) => (
+        <article class="timeline-item">
+          <div class="timeline-period">{item.period}</div>
+          <div>
+            <h2>{item.degree}</h2>
+            <p class="timeline-institution">{item.institution}</p>
+            {item.detail && <p>{item.detail}</p>}
+            {item.supervisor && <p>Supervisor: {item.supervisor}</p>}
+            {item.thesis && <p class="thesis-title">Thesis: <em>{item.thesis}</em></p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

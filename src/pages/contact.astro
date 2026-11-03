@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { profile } from '../data/site.js';
+---
+<BaseLayout title="Contact" description="Contact information for Xuecheng Bai.">
+  <section class="page-intro section-block">
+    <p class="eyebrow">CONTACT</p>
+    <h1>Get in Touch</h1>
+    <p class="page-lead">I welcome academic discussion, research collaboration, and conversations about computer vision and efficient AI systems.</p>
+  </section>
+  <section class="section-block contact-section last-section">
+    <SectionHeading eyebrow="CONNECT" title="Contact Information" />
+    <div class="contact-list">
+      <div><span>Email</span><a href={profile.links.email}>{profile.email}</a></div>
+      <div><span>Google Scholar</span><a href={profile.links.googleScholar} target="_blank" rel="noreferrer">View profile ↗</a></div>
+      <div><span>GitHub</span><a href={profile.links.github} target="_blank" rel="noreferrer">View repositories ↗</a></div>
+      <div><span>ORCID</span><a href={profile.links.orcid} target="_blank" rel="noreferrer">View researcher ID ↗</a></div>
+    </div>
+    <p class="placeholder-note">Remember to replace the placeholder contact links in <code>src/data/site.js</code> before publishing.</p>
+  </section>
+</BaseLayout>

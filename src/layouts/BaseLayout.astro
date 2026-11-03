@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+import { profile } from '../data/site.js';
+
+const { title = profile.name, description = `Academic website of ${profile.name}.` } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title} · Academic Website</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="site-content">
+        <main id="main-content">
+          <slot />
+        </main>
+        <footer class="site-footer">
+          <span>© {new Date().getFullYear()} {profile.name}</span>
+          <span>{profile.affiliation}</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

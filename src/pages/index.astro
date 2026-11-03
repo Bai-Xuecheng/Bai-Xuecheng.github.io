@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { profile, researchInterests, news, publications, academicService } from '../data/site.js';
+
+const academicServiceGroups = academicService.reduce((groups, item) => {
+  let group = groups.find((entry) => entry.role === item.role);
+  if (!group) {
+    group = { role: item.role, items: [] };
+    groups.push(group);
+  }
+  group.items.push(item);
+  return groups;
+}, []);
+---
+<BaseLayout title={profile.name} description={`Academic website of ${profile.name}, Algorithm Engineer at ${profile.affiliation} in ${profile.location}.`}>
+  <div class="home-title"><h1>{profile.name}</h1></div>
+
+  <section class="profile-intro" aria-label="Profile">
+    <img class="profile-portrait" src="/photo.png" alt={`Portrait of ${profile.name}`} width="124" height="160" fetchpriority="high" />
+    <div class="profile-details">
+      <p><strong>{profile.title}</strong><br />{profile.affiliation}<br />{profile.location}</p>
+      <p>E-mail: <a href={profile.links.email}>{profile.email}</a></p>
+      <p class="profile-links"><a href={profile.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar</a> · <a href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a> · <a href={profile.links.orcid} target="_blank" rel="noreferrer">ORCID</a></p>
+    </div>
+  </section>
+
+  <section class="home-section" id="about">
+    <h2>About me</h2>
+    <p>{profile.bio}</p>
+    <p>My research interests include {researchInterests.join(', ')}. I am particularly interested in bringing vision-language capabilities to resource-constrained devices.</p>
+  </section>
+
+  <section class="home-section" id="news">
+    <h2>News</h2>
+    <ul class="simple-news">
+      {news.map((item) => <li><span class="news-date">{item.date}:</span> {item.text} <a href={item.href} target="_blank" rel="noreferrer">[link]</a></li>)}
+    </ul>
+  </section>
+
+  <section class="home-section" id="publications">
+    <h2>Recent publications</h2>
+    <PublicationList items={publications} />
+  </section>
+
+  <section class="home-section academic-service" id="academic-service">
+    <h2>Academic service</h2>
+    {academicServiceGroups.length > 0 ? (
+      academicServiceGroups.map((group) => (
+        <div class="academic-service-group">
+          <h3>{group.role}</h3>
+          <ul>
+            {group.items.map((item) => (
+              <li>
+                {item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.organization}</a> : item.organization}{item.period && <> {item.period}</>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    ) : (
+      <p class="academic-service-empty">Academic service information will be added here.</p>
+    )}
+  </section>
+</BaseLayout>

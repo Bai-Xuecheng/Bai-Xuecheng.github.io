@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { publications } from '../data/site.js';
+---
+<BaseLayout title="Publications" description="Publications and preprints by Xuecheng Bai.">
+  <section class="page-intro section-block">
+    <p class="eyebrow">PUBLICATIONS</p>
+    <h1>Publications</h1>
+    <p class="page-lead">Selected publications and preprints. My name is highlighted in the author lists; an asterisk indicates equal contribution where applicable.</p>
+  </section>
+  <section class="section-block last-section">
+    <SectionHeading eyebrow="RESEARCH OUTPUT" title="Papers & Preprints" />
+    <PublicationList items={publications} />
+  </section>
+</BaseLayout>

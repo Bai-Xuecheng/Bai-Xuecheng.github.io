@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { researchAreas, researchInterests } from '../data/site.js';
+---
+<BaseLayout title="Research" description="Research interests and questions of Xuecheng Bai.">
+  <section class="page-intro section-block">
+    <p class="eyebrow">RESEARCH</p>
+    <h1>Research Overview</h1>
+    <p class="page-lead">I study visual representation and detection architectures, with a particular focus on small objects in UAV imagery. My work investigates how local structural evidence, multi-scale context, and complementary feature pathways can be organized within efficient detection systems.</p>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow="RESEARCH THEMES" title="Research Interests" />
+    <div class="interest-list">
+      {researchInterests.map((interest) => <span class="interest-item">{interest}</span>)}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow="CORE QUESTIONS" title="Research Directions" description="The following questions provide a common thread across my recent work." />
+    <div class="research-detail-list">
+      {researchAreas.map((area) => (
+        <article class="research-detail">
+          <span class="small-index">{area.number}</span>
+          <div>
+            <h2>{area.title}</h2>
+            <p class="research-question">{area.question}</p>
+            <p>{area.description}</p>
+            <p class="work-reference">Related work: {area.work}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block last-section">
+    <SectionHeading eyebrow="THESIS" title="Architectural Advances for Small Object Detection in UAV Imagery" />
+    <div class="thesis-questions">
+      <div>
+        <span class="small-index">RQ1</span>
+        <p>How can spatial details and semantic information across scales be effectively integrated?</p>
+      </div>
+      <div>
+        <span class="small-index">RQ2</span>
+        <p>How can complementary feature extraction pathways be coordinated to improve detection and localization performance?</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
