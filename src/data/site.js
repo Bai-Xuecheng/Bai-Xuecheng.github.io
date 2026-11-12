@@ -19,6 +19,7 @@ export const profile = {
 
 export const researchInterests = [
   'Computer Vision',
+  'Image Processing and Enhancement',
   'UAV Small Object Detection',
   'Vision-Language Models (VLMs)',
   'On-device Vision-Language Models',
@@ -42,6 +43,11 @@ export const researchAreas = [
 ];
 
 export const news = [
+  {
+    date: 'Apr 2026',
+    text: 'I have accepted an invitation to serve as a Program Committee (PC) member for ICIC 2027. I welcome any inquiries or discussions!',
+    href: 'http://www.ic-icc.cn/2027/index.htm',
+  },
   {
     date: 'Aug 2026',
     text: 'An updated version of MGDFIS is available on arXiv.',
@@ -159,11 +165,14 @@ export const publications = [
 ];
 
 export const academicService = [
-  { role: 'Program Committee Member', organization: 'The International Conference on Intelligent Computing (ICIC)', period: ' 2025' },
+  { role: 'Program Committee Member', organization: 'The International Conference on Intelligent Computing (ICIC)', period: ' 2027' },
   { role: 'Program Committee Member', organization: 'The International Conference on Intelligent Computing (ICIC)', period: ' 2026' },
-  { role: 'Program Committee Member', organization: 'The Pacific Rim International Conference on Artificial Intelligence (PRICAI)', period: ' 2025' },
+  { role: 'Program Committee Member', organization: 'The International Conference on Intelligent Computing (ICIC)', period: ' 2025' },
   { role: 'Program Committee Member', organization: 'The Pacific Rim International Conference on Artificial Intelligence (PRICAI)', period: ' 2026' },
-  { role: 'Reviewer', organization: 'The IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)', period: ' 2025' },
+  { role: 'Program Committee Member', organization: 'The Pacific Rim International Conference on Artificial Intelligence (PRICAI)', period: ' 2025' },
+  { role: 'Reviewer', organization: 'The IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)', period: ' 2026' },
+  { role: 'Reviewer', organization: 'The International Conference on Intelligent Computing (ICIC)', period: ' 2025' },
+  { role: 'Reviewer', organization: 'The Pacific Rim International Conference on Artificial Intelligence (PRICAI)', period: ' 2025' },
 ];
 
 export const education = [
